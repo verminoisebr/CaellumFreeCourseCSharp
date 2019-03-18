@@ -144,5 +144,11 @@ namespace Classe
                 MessageBox.Show("Não é maior de idade");
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Cliente2 jorge = new Cliente2("Jorge");
+            MessageBox.Show("O nome do cliente2 é " + jorge.Nome);
+        }
     }
 }
