@@ -8,7 +8,7 @@ namespace Banco
         {
         }
         public int Numero { get; set; }
-        public double Saldo { get; private set; }
+        public double Saldo { get; protected set; }
         internal Cliente Titular { get; set; }
 
         public void Deposita(double valor)
@@ -16,7 +16,7 @@ namespace Banco
             this.Saldo += valor;
         }
 
-        internal void Saca(double valor)
+        public virtual void Saca(double valor)
         {
             this.Saldo -= valor;
         }
