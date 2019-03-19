@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonSoma = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textoTitular
@@ -135,11 +136,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Conta";
             // 
+            // ButtonSoma
+            // 
+            this.ButtonSoma.Location = new System.Drawing.Point(442, 44);
+            this.ButtonSoma.Name = "ButtonSoma";
+            this.ButtonSoma.Size = new System.Drawing.Size(75, 23);
+            this.ButtonSoma.TabIndex = 11;
+            this.ButtonSoma.Text = "SomaContas";
+            this.ButtonSoma.UseVisualStyleBackColor = true;
+            this.ButtonSoma.Click += new System.EventHandler(this.ButtonSoma_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 438);
+            this.Controls.Add(this.ButtonSoma);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -172,6 +184,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button ButtonSoma;
     }
 }
 

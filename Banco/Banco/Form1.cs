@@ -13,22 +13,25 @@ namespace Banco
     public partial class Form1 : Form
     {
         private Conta conta;
+        
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            Conta c = new Conta();
-            c.Numero = 1;
+            //this.conta = new Conta(); // normal class
+            //this.conta = new ContaPoupanca(); // inheritance classs
+            this.conta = new ContaCorrente();
+            this.conta.Numero = 1;
             Cliente cliente = new Cliente("Victor");
-            c.Titular = cliente;
+            this.conta.Titular = cliente;
 
-            textoTitular.Text = c.Titular.Nome;
-            textoNumero.Text = Convert.ToString(c.Numero);
-            textoSaldo.Text = Convert.ToString(c.Saldo);
+            textoTitular.Text = this.conta.Titular.Nome;
+            textoNumero.Text = Convert.ToString(this.conta.Numero);
+            textoSaldo.Text = Convert.ToString(this.conta.Saldo);
 
-            this.conta = new Conta();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,6 +50,26 @@ namespace Banco
             this.conta.Saca(valorOperacao);
             textoSaldo.Text = Convert.ToString(this.conta.Saldo);
             MessageBox.Show("Sucesso");
+        }
+
+        private void ButtonSoma_Click(object sender, EventArgs e)
+        {
+            
+            Conta contaNormal = new Conta();
+            Conta contaCorrente = new ContaCorrente();
+            Conta contaPoupanca = new ContaPoupanca();
+            Cliente victor = new Cliente("Victor");
+            contaNormal.Titular = victor;
+            contaPoupanca.Titular = victor;
+            contaCorrente.Titular = victor;
+            contaNormal.Deposita(10);
+            contaPoupanca.Deposita(20);
+            contaCorrente.Deposita(30);
+            TotalizadorContas total = new TotalizadorContas();
+            total.Adiciona(contaNormal);
+            total.Adiciona(contaPoupanca);
+            total.Adiciona(contaCorrente);
+            MessageBox.Show("Saldo total de "+victor.Nome+" é de: "+total.SaldoTotal.ToString());
         }
     }
 }
