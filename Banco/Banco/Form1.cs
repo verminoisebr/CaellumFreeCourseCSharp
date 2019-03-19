@@ -22,10 +22,14 @@ namespace Banco
         {
             //this.conta = new Conta(); // normal class
             //this.conta = new ContaPoupanca(); // inheritance classs
-            this.conta = new ContaCorrente();
-            this.conta.Numero = 1;
             Cliente cliente = new Cliente("Victor");
-            this.conta.Titular = cliente;
+            this.conta = new ContaCorrente()
+            {
+                Numero = 1,
+                Titular = cliente
+            };
+            //this.conta.Numero = 1;
+            //this.conta.Titular = cliente;
 
             textoTitular.Text = this.conta.Titular.Nome;
             textoNumero.Text = Convert.ToString(this.conta.Numero);
