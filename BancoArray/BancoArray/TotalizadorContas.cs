@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banco
+namespace BancoArray
 {
     class TotalizadorContas
-    { 
-        public double SaldoTotal { get; set; }        
+    {
+        public double SaldoTotal { get; set; }
         public void Adiciona(Conta conta)
         {
             this.SaldoTotal += conta.Saldo;
         }
-        public void ResetAdiciona()
-        {
-            this.SaldoTotal = 0;
-        }
+
     }
 }
