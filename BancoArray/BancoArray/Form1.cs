@@ -13,23 +13,32 @@ namespace BancoArray
     public partial class Form1 : Form
     {
         private Conta[] contas;
+
+        private int numeroDeContas;
+                
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+
+        public void AdicionaConta(Conta conta)
+        {
+            this.contas[this.numeroDeContas] = conta;
+            this.numeroDeContas++;
+            ComboContas.Items.Add(conta.Titular.Nome);
+            ComboDestinoTransferencia.Items.Add(conta.Titular.Nome);
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.contas = new Conta[3];
-            this.contas[0] = new Conta() { Titular = new Cliente("Victor"), Numero = 1  };
-            this.contas[1] = new ContaCorrente() { Titular = new Cliente("Mauricio"), Numero = 2 };
-            this.contas[2] = new ContaPoupanca() { Titular = new Cliente("Osni"), Numero = 3 };
-
-            foreach (Conta conta in this.contas)
-            {
-                ComboContas.Items.Add(conta.Titular.Nome);
-                ComboDestinoTransferencia.Items.Add(conta.Titular.Nome);
-            }
+            this.contas = new Conta[10];
+            Conta c1 = new Conta() { Titular = new Cliente("Victor"), Numero = 1  };
+            this.AdicionaConta(c1);
+            Conta c2 = new ContaCorrente() { Titular = new Cliente("Mauricio"), Numero = 2 };
+            this.AdicionaConta(c2);
+            Conta c3 = new ContaPoupanca() { Titular = new Cliente("Osni"), Numero = 3 };
+            this.AdicionaConta(c3);           
         }
 
         private void ComboContas_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,6 +74,12 @@ namespace BancoArray
             int indice2 = ComboDestinoTransferencia.SelectedIndex;
             this.contas[indice2].Deposita(Convert.ToDouble(textoValor.Text));
             MessageBox.Show("Sucesso");
+        }
+        
+        private void ButtonNovaConta_Click(object sender, EventArgs e)
+        {
+            FormCadastroConta formularioDeCadastro = new FormCadastroConta(this);
+            formularioDeCadastro.ShowDialog();
         }
     }
 }

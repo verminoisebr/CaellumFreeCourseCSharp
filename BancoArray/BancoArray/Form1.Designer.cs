@@ -32,6 +32,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.ComboContas = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ButtonTransferencia = new System.Windows.Forms.Button();
+            this.ComboDestinoTransferencia = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,9 +45,7 @@
             this.textoSaldo = new System.Windows.Forms.TextBox();
             this.textoNumero = new System.Windows.Forms.TextBox();
             this.textoTitular = new System.Windows.Forms.TextBox();
-            this.ComboDestinoTransferencia = new System.Windows.Forms.ComboBox();
-            this.ButtonTransferencia = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.ButtonNovaConta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +100,33 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Conta";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(23, 217);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Conta destino";
+            // 
+            // ButtonTransferencia
+            // 
+            this.ButtonTransferencia.Location = new System.Drawing.Point(62, 246);
+            this.ButtonTransferencia.Name = "ButtonTransferencia";
+            this.ButtonTransferencia.Size = new System.Drawing.Size(89, 23);
+            this.ButtonTransferencia.TabIndex = 11;
+            this.ButtonTransferencia.Text = "Transferência";
+            this.ButtonTransferencia.UseVisualStyleBackColor = true;
+            this.ButtonTransferencia.Click += new System.EventHandler(this.ButtonTransferencia_Click);
+            // 
+            // ComboDestinoTransferencia
+            // 
+            this.ComboDestinoTransferencia.FormattingEnabled = true;
+            this.ComboDestinoTransferencia.Location = new System.Drawing.Point(107, 209);
+            this.ComboDestinoTransferencia.Name = "ComboDestinoTransferencia";
+            this.ComboDestinoTransferencia.Size = new System.Drawing.Size(121, 21);
+            this.ComboDestinoTransferencia.TabIndex = 10;
             // 
             // label4
             // 
@@ -184,38 +212,22 @@
             this.textoTitular.Size = new System.Drawing.Size(100, 20);
             this.textoTitular.TabIndex = 0;
             // 
-            // ComboDestinoTransferencia
+            // ButtonNovaConta
             // 
-            this.ComboDestinoTransferencia.FormattingEnabled = true;
-            this.ComboDestinoTransferencia.Location = new System.Drawing.Point(107, 209);
-            this.ComboDestinoTransferencia.Name = "ComboDestinoTransferencia";
-            this.ComboDestinoTransferencia.Size = new System.Drawing.Size(121, 21);
-            this.ComboDestinoTransferencia.TabIndex = 10;
-            // 
-            // ButtonTransferencia
-            // 
-            this.ButtonTransferencia.Location = new System.Drawing.Point(62, 246);
-            this.ButtonTransferencia.Name = "ButtonTransferencia";
-            this.ButtonTransferencia.Size = new System.Drawing.Size(89, 23);
-            this.ButtonTransferencia.TabIndex = 11;
-            this.ButtonTransferencia.Text = "Transferência";
-            this.ButtonTransferencia.UseVisualStyleBackColor = true;
-            this.ButtonTransferencia.Click += new System.EventHandler(this.ButtonTransferencia_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 217);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Conta destino";
+            this.ButtonNovaConta.Location = new System.Drawing.Point(302, 431);
+            this.ButtonNovaConta.Name = "ButtonNovaConta";
+            this.ButtonNovaConta.Size = new System.Drawing.Size(75, 23);
+            this.ButtonNovaConta.TabIndex = 2;
+            this.ButtonNovaConta.Text = "Nova Conta";
+            this.ButtonNovaConta.UseVisualStyleBackColor = true;
+            this.ButtonNovaConta.Click += new System.EventHandler(this.ButtonNovaConta_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 605);
+            this.Controls.Add(this.ButtonNovaConta);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -248,6 +260,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button ButtonTransferencia;
         private System.Windows.Forms.ComboBox ComboDestinoTransferencia;
+        private System.Windows.Forms.Button ButtonNovaConta;
     }
 }
 
