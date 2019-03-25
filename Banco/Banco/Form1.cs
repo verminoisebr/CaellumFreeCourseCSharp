@@ -59,18 +59,18 @@ namespace Banco
         private void ButtonSoma_Click(object sender, EventArgs e)
         {
             
-            Conta contaNormal = new Conta();
+            //Conta contaNormal = new Conta();
             Conta contaCorrente = new ContaCorrente();
             Conta contaPoupanca = new ContaPoupanca();
             Cliente victor = new Cliente("Victor");
-            contaNormal.Titular = victor;
+            //contaNormal.Titular = victor;
             contaPoupanca.Titular = victor;
             contaCorrente.Titular = victor;
-            contaNormal.Deposita(10);
+            //contaNormal.Deposita(10);
             contaPoupanca.Deposita(20);
             contaCorrente.Deposita(30);
             TotalizadorContas total = new TotalizadorContas();
-            total.Adiciona(contaNormal);
+            //total.Adiciona(contaNormal);
             total.Adiciona(contaPoupanca);
             total.Adiciona(contaCorrente);
             MessageBox.Show("Saldo total de "+victor.Nome+" é de: "+total.SaldoTotal.ToString());
