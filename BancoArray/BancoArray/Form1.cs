@@ -14,7 +14,7 @@ namespace BancoArray
     {
         private Conta[] contas;
 
-        private int numeroDeContas;
+        private int numeroDeContas = 0;
                 
         public Form1()
         {
@@ -24,6 +24,7 @@ namespace BancoArray
         public void AdicionaConta(Conta conta)
         {
             this.contas[this.numeroDeContas] = conta;
+            conta.Numero = this.numeroDeContas;
             this.numeroDeContas++;
             ComboContas.Items.Add(conta.Titular.Nome);
             ComboDestinoTransferencia.Items.Add(conta.Titular.Nome);
@@ -33,11 +34,11 @@ namespace BancoArray
         private void Form1_Load(object sender, EventArgs e)
         {
             this.contas = new Conta[10];
-            Conta c1 = new Conta() { Titular = new Cliente("Victor"), Numero = 1  };
-            this.AdicionaConta(c1);
-            Conta c2 = new ContaCorrente() { Titular = new Cliente("Mauricio"), Numero = 2 };
+            /*Conta c1 = new Conta() { Titular = new Cliente("Victor"), Numero = 1  };
+            this.AdicionaConta(c1);*/
+            Conta c2 = new ContaCorrente() { Titular = new Cliente("Mauricio")};
             this.AdicionaConta(c2);
-            Conta c3 = new ContaPoupanca() { Titular = new Cliente("Osni"), Numero = 3 };
+            Conta c3 = new ContaPoupanca() { Titular = new Cliente("Osni")};
             this.AdicionaConta(c3);           
         }
 

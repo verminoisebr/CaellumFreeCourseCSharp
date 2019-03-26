@@ -17,7 +17,7 @@ namespace BancoArray
         public FormCadastroConta(Form1 formPrincipal)
         {
             this.formPrincipal = formPrincipal;
-            string[] tipoDeConta = new string[] { "Conta", "Conta Poupanca", "Conta Corrente" };
+            string[] tipoDeConta = new string[] { "Conta Poupanca", "Conta Corrente" };
             
             InitializeComponent();
 
@@ -29,21 +29,24 @@ namespace BancoArray
             int indice = ComboTipoConta.SelectedIndex;
             if(indice == 0)
             {
-                Conta novaConta = new Conta { Titular = new Cliente(textoTitular.Text), Numero = Convert.ToInt32(textoNumero.Text) };
+                /*Conta novaConta = new Conta { Titular = new Cliente(textoTitular.Text), Numero = Convert.ToInt32(textoNumero.Text) };
                 this.formPrincipal.AdicionaConta(novaConta);
-                MessageBox.Show("Sucesso");                
+                MessageBox.Show("Sucesso"); */ //used before Conta is an abstract class
+                Conta novaConta = new ContaPoupanca { Titular = new Cliente(textoTitular.Text)/*, Numero = Convert.ToInt32(textoNumero.Text)*/ };
+                this.formPrincipal.AdicionaConta(novaConta);
+                MessageBox.Show("Sucesso");
             }
             else if (indice ==1)
             {
-                Conta novaConta = new ContaPoupanca { Titular = new Cliente(textoTitular.Text), Numero = Convert.ToInt32(textoNumero.Text) };
+                Conta novaConta = new ContaCorrente { Titular = new Cliente(textoTitular.Text)/*, Numero = Convert.ToInt32(textoNumero.Text)*/ };
                 this.formPrincipal.AdicionaConta(novaConta);
                 MessageBox.Show("Sucesso");
             }
             else
             {
-                Conta novaConta = new ContaCorrente { Titular = new Cliente(textoTitular.Text), Numero = Convert.ToInt32(textoNumero.Text) };
+                /*Conta novaConta = new ContaCorrente { Titular = new Cliente(textoTitular.Text), Numero = Convert.ToInt32(textoNumero.Text) };
                 this.formPrincipal.AdicionaConta(novaConta);
-                MessageBox.Show("Sucesso");
+                MessageBox.Show("Sucesso");*/
             }            
         }        
         
