@@ -21,13 +21,18 @@ namespace BancoArray
             
             InitializeComponent();
 
+            textoNumero.Enabled = false; // user not allowed to change this field
+
             ComboTipoConta.Items.AddRange(tipoDeConta);
+
+            textoNumero.Text = Convert.ToString(Conta.ProximaConta());
         }
 
         private void ButtonCadastro_Click(object sender, EventArgs e)
         {
             int indice = ComboTipoConta.SelectedIndex;
-            if(indice == 0)
+            
+            if (indice == 0)
             {
                 /*Conta novaConta = new Conta { Titular = new Cliente(textoTitular.Text), Numero = Convert.ToInt32(textoNumero.Text) };
                 this.formPrincipal.AdicionaConta(novaConta);
@@ -50,7 +55,12 @@ namespace BancoArray
                 Conta novaConta = new ContaInvestimento { Titular = new Cliente(textoTitular.Text) };
                 this.formPrincipal.AdicionaConta(novaConta);
                 MessageBox.Show("Sucesso");
-            }            
+            }
+            textoNumero.Text = Convert.ToString(Conta.ProximaConta()); //refresh field after register
+
+            textoTitular.Text = ""; //refresh field after register
+            
+            ComboTipoConta.SelectedItem = null; //refresh field after register
         }        
         
         private void ComboTipoConta_SelectedIndexChanged(object sender, EventArgs e)

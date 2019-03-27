@@ -14,7 +14,7 @@ namespace BancoArray
     {
         private Conta[] contas;
 
-        private int numeroDeContas = 0;
+        //private int numeroDeContas = 0; // is static now
                 
         public Form1()
         {
@@ -23,9 +23,9 @@ namespace BancoArray
 
         public void AdicionaConta(Conta conta)
         {
-            this.contas[this.numeroDeContas] = conta;
-            conta.Numero = this.numeroDeContas;
-            this.numeroDeContas++;
+            this.contas[Conta.ProximaConta()-1] = conta;            
+            //conta.Numero = this.numeroDeContas; // it's static now
+            //this.numeroDeContas++;
             ComboContas.Items.Add(conta.Titular.Nome);
             ComboDestinoTransferencia.Items.Add(conta.Titular.Nome);
                         

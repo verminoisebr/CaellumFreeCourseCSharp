@@ -8,6 +8,18 @@ namespace BancoArray
 {
     public abstract class Conta
     {
+        private static int numeroDeConta = 0;
+
+        public Conta()
+        {
+            this.Numero = numeroDeConta;
+            numeroDeConta++;
+        }
+        public static int ProximaConta()
+        {            
+            return numeroDeConta;
+        }
+
         public Cliente Titular { get; set; }
         public int Numero { get; set; }
         public double Saldo { get; protected set; }
