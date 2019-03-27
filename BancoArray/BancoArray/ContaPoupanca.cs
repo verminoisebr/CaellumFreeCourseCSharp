@@ -1,6 +1,6 @@
 ﻿namespace BancoArray
 {
-    public class ContaPoupanca: Conta
+    public class ContaPoupanca: Conta, ITributavel
     {
         public override void Saca(double valor)
         {
@@ -10,6 +10,10 @@
         public override void Deposita(double valor)
         {
             this.Saldo += (valor-0.10);
+        }
+        public double CalculaTributo()
+        {
+            return this.Saldo * 0.02;
         }
     }
 }

@@ -28,14 +28,14 @@ namespace BancoArray
             this.numeroDeContas++;
             ComboContas.Items.Add(conta.Titular.Nome);
             ComboDestinoTransferencia.Items.Add(conta.Titular.Nome);
-            
+                        
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.contas = new Conta[10];
             /*Conta c1 = new Conta() { Titular = new Cliente("Victor"), Numero = 1  };
-            this.AdicionaConta(c1);*/
+            this.AdicionaConta(c1);*/ // abstract class, not allowed
             Conta c2 = new ContaCorrente() { Titular = new Cliente("Mauricio")};
             this.AdicionaConta(c2);
             Conta c3 = new ContaPoupanca() { Titular = new Cliente("Osni")};
@@ -81,6 +81,45 @@ namespace BancoArray
         {
             FormCadastroConta formularioDeCadastro = new FormCadastroConta(this);
             formularioDeCadastro.ShowDialog();
+        }
+
+        private void ButtonImpostos_Click(object sender, EventArgs e)
+        {
+            /*ContaCorrente conta = new ContaCorrente();
+            conta.Deposita(200.0);
+
+            MessageBox.Show("imposto da conta corrente = " + conta.CalculaTributo());
+            ITributavel t = conta;
+
+            MessageBox.Show("imposto da conta pela interface = " + t.CalculaTributo());
+
+            SeguroDeVida sv = new SeguroDeVida();
+            MessageBox.Show("imposto do seguro = " + sv.CalculaTributo());
+
+            t = sv;
+            MessageBox.Show("imposto do seguro pela interface = " + t.CalculaTributo());*/ //example 1 of interface
+            ContaCorrente conta = new ContaCorrente();
+            conta.Deposita(200);
+            SeguroDeVida sv = new SeguroDeVida();
+
+            TotalizadorTributos totalizador = new TotalizadorTributos();
+            totalizador.Adiciona(conta);
+            MessageBox.Show("Tributos = "+totalizador.Total);
+            totalizador.Adiciona(sv);
+            MessageBox.Show("Tributos = "+totalizador.Total);
+        }
+
+        private void ButtonTotalizadorArray_Click(object sender, EventArgs e)
+        {
+            TotalizadorTributos totalizador = new TotalizadorTributos();
+            for (int i =0; i<contas.Length; i++)
+            {
+                if (contas[i] is ContaCorrente con)
+                {                    
+                    totalizador.Adiciona(con);
+                }                
+            }
+            MessageBox.Show("Tributos Todas Contas Correntes cadastradas é: R$" + totalizador.Total);
         }
     }
 }

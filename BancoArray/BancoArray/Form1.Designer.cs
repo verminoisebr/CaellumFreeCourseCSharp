@@ -46,6 +46,8 @@
             this.textoNumero = new System.Windows.Forms.TextBox();
             this.textoTitular = new System.Windows.Forms.TextBox();
             this.ButtonNovaConta = new System.Windows.Forms.Button();
+            this.ButtonImpostos = new System.Windows.Forms.Button();
+            this.ButtonTotalizadorArray = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -222,11 +224,33 @@
             this.ButtonNovaConta.UseVisualStyleBackColor = true;
             this.ButtonNovaConta.Click += new System.EventHandler(this.ButtonNovaConta_Click);
             // 
+            // ButtonImpostos
+            // 
+            this.ButtonImpostos.Location = new System.Drawing.Point(428, 431);
+            this.ButtonImpostos.Name = "ButtonImpostos";
+            this.ButtonImpostos.Size = new System.Drawing.Size(75, 23);
+            this.ButtonImpostos.TabIndex = 3;
+            this.ButtonImpostos.Text = "Impostos";
+            this.ButtonImpostos.UseVisualStyleBackColor = true;
+            this.ButtonImpostos.Click += new System.EventHandler(this.ButtonImpostos_Click);
+            // 
+            // ButtonTotalizadorArray
+            // 
+            this.ButtonTotalizadorArray.Location = new System.Drawing.Point(568, 244);
+            this.ButtonTotalizadorArray.Name = "ButtonTotalizadorArray";
+            this.ButtonTotalizadorArray.Size = new System.Drawing.Size(99, 23);
+            this.ButtonTotalizadorArray.TabIndex = 4;
+            this.ButtonTotalizadorArray.Text = "Totalizador Array";
+            this.ButtonTotalizadorArray.UseVisualStyleBackColor = true;
+            this.ButtonTotalizadorArray.Click += new System.EventHandler(this.ButtonTotalizadorArray_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 605);
+            this.Controls.Add(this.ButtonTotalizadorArray);
+            this.Controls.Add(this.ButtonImpostos);
             this.Controls.Add(this.ButtonNovaConta);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -261,6 +285,8 @@
         private System.Windows.Forms.Button ButtonTransferencia;
         private System.Windows.Forms.ComboBox ComboDestinoTransferencia;
         private System.Windows.Forms.Button ButtonNovaConta;
+        private System.Windows.Forms.Button ButtonImpostos;
+        private System.Windows.Forms.Button ButtonTotalizadorArray;
     }
 }
 

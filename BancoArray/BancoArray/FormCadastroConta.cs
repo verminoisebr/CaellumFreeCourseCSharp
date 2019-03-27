@@ -17,7 +17,7 @@ namespace BancoArray
         public FormCadastroConta(Form1 formPrincipal)
         {
             this.formPrincipal = formPrincipal;
-            string[] tipoDeConta = new string[] { "Conta Poupanca", "Conta Corrente" };
+            string[] tipoDeConta = new string[] { "Conta Poupanca", "Conta Corrente", "Conta Investimento" };
             
             InitializeComponent();
 
@@ -47,6 +47,9 @@ namespace BancoArray
                 /*Conta novaConta = new ContaCorrente { Titular = new Cliente(textoTitular.Text), Numero = Convert.ToInt32(textoNumero.Text) };
                 this.formPrincipal.AdicionaConta(novaConta);
                 MessageBox.Show("Sucesso");*/
+                Conta novaConta = new ContaInvestimento { Titular = new Cliente(textoTitular.Text) };
+                this.formPrincipal.AdicionaConta(novaConta);
+                MessageBox.Show("Sucesso");
             }            
         }        
         
