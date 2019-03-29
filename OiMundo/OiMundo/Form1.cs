@@ -101,5 +101,27 @@ namespace OiMundo
             }
             MessageBox.Show("O total é: " + total);
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int n;
+            string texto = "";
+            for(int i=1; i<6; i++)
+            {
+                for(int j=1; j<=i; j++)
+                {
+                    n = i * j;
+                    if (i == j)
+                    {
+                        texto += " " + Convert.ToString(n) + "\n";
+                    }
+                    else
+                    {
+                        texto += " " + Convert.ToString(n);
+                    }
+                }
+            }
+            MessageBox.Show(texto);
+        }
     }
 }
