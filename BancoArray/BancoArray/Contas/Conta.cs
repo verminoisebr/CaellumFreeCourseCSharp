@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BancoArray
+namespace BancoArray.Contas
 {
     public abstract class Conta
     {

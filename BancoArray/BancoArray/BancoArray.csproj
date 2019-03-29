@@ -47,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
-    <Compile Include="Conta.cs" />
-    <Compile Include="ContaCorrente.cs" />
-    <Compile Include="ContaInvestimento.cs" />
-    <Compile Include="ContaPoupanca.cs" />
+    <Compile Include="Contas\Conta.cs" />
+    <Compile Include="Contas\ContaCorrente.cs" />
+    <Compile Include="Contas\ContaInvestimento.cs" />
+    <Compile Include="Contas\ContaPoupanca.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

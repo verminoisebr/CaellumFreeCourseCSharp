@@ -1,4 +1,5 @@
-﻿namespace BancoArray
+﻿using BancoArray.Contas;
+namespace BancoArray
 {
     public class ContaCorrente : Conta, ITributavel
     {
