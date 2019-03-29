@@ -53,18 +53,33 @@ namespace BancoArray
 
         private void ButtonDeposito_Click(object sender, EventArgs e)
         {
-            int indice = ComboContas.SelectedIndex;
-            this.contas[indice].Deposita(Convert.ToDouble(textoValor.Text));
-            textoSaldo.Text = Convert.ToString(this.contas[indice].Saldo);
-            MessageBox.Show("Sucesso");
+            try
+            {
+                int indice = ComboContas.SelectedIndex;
+                this.contas[indice].Deposita(Convert.ToDouble(textoValor.Text));
+                textoSaldo.Text = Convert.ToString(this.contas[indice].Saldo);
+                MessageBox.Show("Sucesso");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Argumento inválido!");
+            }
         }
 
         private void ButtonSaca_Click(object sender, EventArgs e)
         {
-            int indice = ComboContas.SelectedIndex;
-            this.contas[indice].Saca(Convert.ToDouble(textoValor.Text));
-            textoSaldo.Text = Convert.ToString(this.contas[indice].Saldo);
-            MessageBox.Show("Sucesso");
+            try
+            {
+                int indice = ComboContas.SelectedIndex;
+                this.contas[indice].Saca(Convert.ToDouble(textoValor.Text));
+                textoSaldo.Text = Convert.ToString(this.contas[indice].Saldo);
+                MessageBox.Show("Sucesso");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Saldo insuficiente");
+            }
+            
         }
 
         private void ButtonTransferencia_Click(object sender, EventArgs e)
