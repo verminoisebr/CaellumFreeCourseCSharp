@@ -10,6 +10,10 @@ namespace BancoArray.Contas
     {
         private static int numeroDeConta = 0;
 
+        public override string ToString()
+        {
+            return "Titular: " + this.Titular.Nome;
+        }
         public Conta()
         {
             this.Numero = numeroDeConta;

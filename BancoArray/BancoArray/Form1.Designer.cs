@@ -48,6 +48,8 @@
             this.ButtonNovaConta = new System.Windows.Forms.Button();
             this.ButtonImpostos = new System.Windows.Forms.Button();
             this.ButtonTotalizadorArray = new System.Windows.Forms.Button();
+            this.ButtonTeste = new System.Windows.Forms.Button();
+            this.ComboTeste = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -244,11 +246,31 @@
             this.ButtonTotalizadorArray.UseVisualStyleBackColor = true;
             this.ButtonTotalizadorArray.Click += new System.EventHandler(this.ButtonTotalizadorArray_Click);
             // 
+            // ButtonTeste
+            // 
+            this.ButtonTeste.Location = new System.Drawing.Point(568, 64);
+            this.ButtonTeste.Name = "ButtonTeste";
+            this.ButtonTeste.Size = new System.Drawing.Size(75, 23);
+            this.ButtonTeste.TabIndex = 5;
+            this.ButtonTeste.Text = "Teste";
+            this.ButtonTeste.UseVisualStyleBackColor = true;
+            this.ButtonTeste.Click += new System.EventHandler(this.ButtonTeste_Click);
+            // 
+            // ComboTeste
+            // 
+            this.ComboTeste.FormattingEnabled = true;
+            this.ComboTeste.Location = new System.Drawing.Point(568, 27);
+            this.ComboTeste.Name = "ComboTeste";
+            this.ComboTeste.Size = new System.Drawing.Size(121, 21);
+            this.ComboTeste.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 605);
+            this.Controls.Add(this.ComboTeste);
+            this.Controls.Add(this.ButtonTeste);
             this.Controls.Add(this.ButtonTotalizadorArray);
             this.Controls.Add(this.ButtonImpostos);
             this.Controls.Add(this.ButtonNovaConta);
@@ -287,6 +309,8 @@
         private System.Windows.Forms.Button ButtonNovaConta;
         private System.Windows.Forms.Button ButtonImpostos;
         private System.Windows.Forms.Button ButtonTotalizadorArray;
+        private System.Windows.Forms.Button ButtonTeste;
+        private System.Windows.Forms.ComboBox ComboTeste;
     }
 }
 

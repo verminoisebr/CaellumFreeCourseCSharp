@@ -27,8 +27,8 @@ namespace BancoArray
             this.contas[Conta.ProximaConta()-1] = conta;            
             //conta.Numero = this.numeroDeContas; // it's static now
             //this.numeroDeContas++;
-            ComboContas.Items.Add(conta.Titular.Nome);
-            ComboDestinoTransferencia.Items.Add(conta.Titular.Nome);
+            ComboContas.Items.Add(conta);
+            ComboDestinoTransferencia.Items.Add(conta);
                         
         }
 
@@ -40,7 +40,16 @@ namespace BancoArray
             Conta c2 = new ContaCorrente() { Titular = new Cliente("Mauricio")};
             this.AdicionaConta(c2);
             Conta c3 = new ContaPoupanca() { Titular = new Cliente("Osni")};
-            this.AdicionaConta(c3);           
+            this.AdicionaConta(c3);
+
+            //testing comboBox without using custom ToString()
+            Conta c = new ContaCorrente() { Numero = 1 };
+            Conta c12 = new ContaCorrente() { Numero = 2 };
+            /*ComboTeste.DisplayMember = Convert.ToString(c.Numero);
+            ComboTeste.DisplayMember = Convert.ToString(c12.Numero);*/
+            ComboTeste.Items.Add(Convert.ToString(c.Numero));
+            ComboTeste.Items.Add(Convert.ToString(c12.Numero)); /*
+            ComboTeste.DisplayMember = "Numero";*/
         }
 
         private void ComboContas_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,9 +65,15 @@ namespace BancoArray
         {
             try
             {
-                int indice = ComboContas.SelectedIndex;
+                /*int indice = ComboContas.SelectedIndex;
                 this.contas[indice].Deposita(Convert.ToDouble(textoValor.Text));
                 textoSaldo.Text = Convert.ToString(this.contas[indice].Saldo);
+                MessageBox.Show("Sucesso");*/ // before overriding ToString() method
+
+                //using custom ToString()
+                Conta selecionada = (Conta)ComboContas.SelectedItem;
+                selecionada.Deposita(Convert.ToDouble(textoValor.Text));
+                textoSaldo.Text = Convert.ToString(selecionada.Saldo);
                 MessageBox.Show("Sucesso");
             }
             catch (Exception ex)
@@ -71,9 +86,15 @@ namespace BancoArray
         {
             try
             {
-                int indice = ComboContas.SelectedIndex;
+                /*int indice = ComboContas.SelectedIndex;
                 this.contas[indice].Saca(Convert.ToDouble(textoValor.Text));
                 textoSaldo.Text = Convert.ToString(this.contas[indice].Saldo);
+                MessageBox.Show("Sucesso");*/ // using original ToString()
+
+                //using custom ToString()
+                Conta selecionada = (Conta)ComboContas.SelectedItem;
+                selecionada.Saca(Convert.ToDouble(textoValor.Text));
+                textoSaldo.Text = Convert.ToString(selecionada.Saldo);
                 MessageBox.Show("Sucesso");
             }
             catch (Exception ex)
@@ -136,6 +157,12 @@ namespace BancoArray
                 }                
             }
             MessageBox.Show("Tributos Todas Contas Correntes cadastradas é: R$" + totalizador.Total);
+        }
+
+            
+        private void ButtonTeste_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
