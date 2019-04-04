@@ -50,15 +50,22 @@
             this.ButtonTotalizadorArray = new System.Windows.Forms.Button();
             this.ButtonTeste = new System.Windows.Forms.Button();
             this.ComboTeste = new System.Windows.Forms.ComboBox();
+            this.ButtonBuscaDictionary = new System.Windows.Forms.Button();
+            this.ComboBuscaDictionay = new System.Windows.Forms.ComboBox();
+            this.textoBuscaDictionary = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.ComboContas);
-            this.groupBox1.Location = new System.Drawing.Point(276, 12);
+            this.groupBox1.Location = new System.Drawing.Point(42, 25);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(266, 76);
             this.groupBox1.TabIndex = 0;
@@ -98,7 +105,7 @@
             this.groupBox2.Controls.Add(this.textoSaldo);
             this.groupBox2.Controls.Add(this.textoNumero);
             this.groupBox2.Controls.Add(this.textoTitular);
-            this.groupBox2.Location = new System.Drawing.Point(276, 107);
+            this.groupBox2.Location = new System.Drawing.Point(42, 120);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(265, 294);
             this.groupBox2.TabIndex = 1;
@@ -218,7 +225,7 @@
             // 
             // ButtonNovaConta
             // 
-            this.ButtonNovaConta.Location = new System.Drawing.Point(302, 431);
+            this.ButtonNovaConta.Location = new System.Drawing.Point(68, 444);
             this.ButtonNovaConta.Name = "ButtonNovaConta";
             this.ButtonNovaConta.Size = new System.Drawing.Size(75, 23);
             this.ButtonNovaConta.TabIndex = 2;
@@ -228,7 +235,7 @@
             // 
             // ButtonImpostos
             // 
-            this.ButtonImpostos.Location = new System.Drawing.Point(428, 431);
+            this.ButtonImpostos.Location = new System.Drawing.Point(194, 444);
             this.ButtonImpostos.Name = "ButtonImpostos";
             this.ButtonImpostos.Size = new System.Drawing.Size(75, 23);
             this.ButtonImpostos.TabIndex = 3;
@@ -238,7 +245,7 @@
             // 
             // ButtonTotalizadorArray
             // 
-            this.ButtonTotalizadorArray.Location = new System.Drawing.Point(568, 244);
+            this.ButtonTotalizadorArray.Location = new System.Drawing.Point(313, 407);
             this.ButtonTotalizadorArray.Name = "ButtonTotalizadorArray";
             this.ButtonTotalizadorArray.Size = new System.Drawing.Size(99, 23);
             this.ButtonTotalizadorArray.TabIndex = 4;
@@ -248,7 +255,7 @@
             // 
             // ButtonTeste
             // 
-            this.ButtonTeste.Location = new System.Drawing.Point(568, 64);
+            this.ButtonTeste.Location = new System.Drawing.Point(313, 227);
             this.ButtonTeste.Name = "ButtonTeste";
             this.ButtonTeste.Size = new System.Drawing.Size(75, 23);
             this.ButtonTeste.TabIndex = 5;
@@ -259,16 +266,75 @@
             // ComboTeste
             // 
             this.ComboTeste.FormattingEnabled = true;
-            this.ComboTeste.Location = new System.Drawing.Point(568, 27);
+            this.ComboTeste.Location = new System.Drawing.Point(313, 190);
             this.ComboTeste.Name = "ComboTeste";
             this.ComboTeste.Size = new System.Drawing.Size(121, 21);
             this.ComboTeste.TabIndex = 6;
+            // 
+            // ButtonBuscaDictionary
+            // 
+            this.ButtonBuscaDictionary.Location = new System.Drawing.Point(204, 92);
+            this.ButtonBuscaDictionary.Name = "ButtonBuscaDictionary";
+            this.ButtonBuscaDictionary.Size = new System.Drawing.Size(75, 23);
+            this.ButtonBuscaDictionary.TabIndex = 7;
+            this.ButtonBuscaDictionary.Text = "Buscar";
+            this.ButtonBuscaDictionary.UseVisualStyleBackColor = true;
+            this.ButtonBuscaDictionary.Click += new System.EventHandler(this.ButtonBuscaDictionary_Click);
+            // 
+            // ComboBuscaDictionay
+            // 
+            this.ComboBuscaDictionay.FormattingEnabled = true;
+            this.ComboBuscaDictionay.Location = new System.Drawing.Point(98, 44);
+            this.ComboBuscaDictionay.Name = "ComboBuscaDictionay";
+            this.ComboBuscaDictionay.Size = new System.Drawing.Size(181, 21);
+            this.ComboBuscaDictionay.TabIndex = 8;
+            // 
+            // textoBuscaDictionary
+            // 
+            this.textoBuscaDictionary.Location = new System.Drawing.Point(97, 94);
+            this.textoBuscaDictionary.Name = "textoBuscaDictionary";
+            this.textoBuscaDictionary.Size = new System.Drawing.Size(100, 20);
+            this.textoBuscaDictionary.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Escolha a Conta";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 97);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Busca por titular";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.ComboBuscaDictionay);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.ButtonBuscaDictionary);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.textoBuscaDictionary);
+            this.groupBox3.Location = new System.Drawing.Point(458, 25);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(317, 169);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Busca de Conta Dictionary";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 605);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.ComboTeste);
             this.Controls.Add(this.ButtonTeste);
             this.Controls.Add(this.ButtonTotalizadorArray);
@@ -283,6 +349,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -311,6 +379,12 @@
         private System.Windows.Forms.Button ButtonTotalizadorArray;
         private System.Windows.Forms.Button ButtonTeste;
         private System.Windows.Forms.ComboBox ComboTeste;
+        private System.Windows.Forms.Button ButtonBuscaDictionary;
+        private System.Windows.Forms.ComboBox ComboBuscaDictionay;
+        private System.Windows.Forms.TextBox textoBuscaDictionary;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

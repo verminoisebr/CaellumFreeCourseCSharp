@@ -14,7 +14,7 @@ namespace BancoArray
     public partial class Form1 : Form
     {
         private Conta[] contas;
-
+        private Dictionary<string, Conta> dicionario; //variable type of dictionary for search exercise
         //private int numeroDeContas = 0; // is static now
                 
         public Form1()
@@ -29,11 +29,14 @@ namespace BancoArray
             //this.numeroDeContas++;
             ComboContas.Items.Add(conta);
             ComboDestinoTransferencia.Items.Add(conta);
-                        
+            this.dicionario.Add(conta.Titular.Nome, conta);// filling in Dictionary for post search 
+            ComboBuscaDictionay.Items.Add(conta);            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.dicionario = new Dictionary<string, Conta>();// instantiating dictionary for search exercise
+
             this.contas = new Conta[10];
             /*Conta c1 = new Conta() { Titular = new Cliente("Victor"), Numero = 1  };
             this.AdicionaConta(c1);*/ // abstract class, not allowed
@@ -48,8 +51,8 @@ namespace BancoArray
             /*ComboTeste.DisplayMember = Convert.ToString(c.Numero);
             ComboTeste.DisplayMember = Convert.ToString(c12.Numero);*/
             ComboTeste.Items.Add(Convert.ToString(c.Numero));
-            ComboTeste.Items.Add(Convert.ToString(c12.Numero)); /*
-            ComboTeste.DisplayMember = "Numero";*/
+            ComboTeste.Items.Add(Convert.ToString(c12.Numero)); 
+            ComboTeste.DisplayMember = "Numero";// i dont know if is working how it shoud be, the statement of exercise is confusing...
         }
 
         private void ComboContas_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,7 +79,7 @@ namespace BancoArray
                 textoSaldo.Text = Convert.ToString(selecionada.Saldo);
                 MessageBox.Show("Sucesso");
             }
-            catch (Exception ex)
+            catch (Exception ex)// is the variable "ex" really necessary?
             {
                 MessageBox.Show("Argumento inválido!");
             }
@@ -162,6 +165,48 @@ namespace BancoArray
             
         private void ButtonTeste_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void ComboBuscaDictionary_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indice = ComboBuscaDictionay.SelectedIndex;
+            Conta selecionada = this.contas[indice];
+            textoTitular.Text = selecionada.Titular.Nome;
+            textoNumero.Text = Convert.ToString(selecionada.Numero);
+            textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+        }
+
+        //i dont lnow how to rename this button without crash. Yes, i discovered how. Rename button in action properties
+        /*private void button1_Click(object sender, EventArgs e)
+        {
+
+        }*/
+
+        // i dont konw how to remove this void without crash
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonBuscaDictionary_Click(object sender, EventArgs e)
+        {
+            string nomeTitular = textoBuscaDictionary.Text;//saving typed name
+
+            try
+            {
+                Conta conta = dicionario[nomeTitular];//searching using dictionary
+
+                /* //refreshing fields with values
+                 textoTitular.Text = conta.Titular.Nome;
+                 textoNumero.Text = Convert.ToString(conta.Numero);
+                 textoSaldo.Text = Convert.ToString(conta.Saldo);*/
+                ComboContas.SelectedItem = conta;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Usuario não cadastrado");
+            }
             
         }
     }
