@@ -56,6 +56,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ButtonRelatorio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -92,6 +93,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ButtonRelatorio);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.ButtonTransferencia);
             this.groupBox2.Controls.Add(this.ComboDestinoTransferencia);
@@ -329,6 +331,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Busca de Conta Dictionary";
             // 
+            // ButtonRelatorio
+            // 
+            this.ButtonRelatorio.Location = new System.Drawing.Point(151, 177);
+            this.ButtonRelatorio.Name = "ButtonRelatorio";
+            this.ButtonRelatorio.Size = new System.Drawing.Size(75, 23);
+            this.ButtonRelatorio.TabIndex = 13;
+            this.ButtonRelatorio.Text = "Relatorio";
+            this.ButtonRelatorio.UseVisualStyleBackColor = true;
+            this.ButtonRelatorio.Click += new System.EventHandler(this.ButtonRelatorio_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,6 +397,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button ButtonRelatorio;
     }
 }
 

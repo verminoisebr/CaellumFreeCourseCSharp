@@ -52,7 +52,7 @@ namespace BancoArray
             ComboTeste.DisplayMember = Convert.ToString(c12.Numero);*/
             ComboTeste.Items.Add(Convert.ToString(c.Numero));
             ComboTeste.Items.Add(Convert.ToString(c12.Numero)); 
-            ComboTeste.DisplayMember = "Numero";// i dont know if is working how it shoud be, the statement of exercise is confusing...
+            ComboTeste.DisplayMember = "Numero";// i dont know if is working how it should be, the statement of exercise is confusing...
         }
 
         private void ComboContas_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,6 +207,25 @@ namespace BancoArray
             {
                 MessageBox.Show("Usuario não cadastrado");
             }
+            
+        }
+
+        private void ButtonRelatorio_Click(object sender, EventArgs e)
+        {
+            // Creating a list of Conta to use with LINQ to generate Formulario (search lists)
+            string[] nomes = new string[10] {"Jorge", "João", "Jeromio", "Jemino", "Jabuleio", "Janessa", "Jimila", "Jucila", "Jevirza", "Jalia" };
+            
+            List<Conta> listContas = new List<Conta>();
+
+            for (int i = 0; i<10; i++)
+            {
+                Conta c = new ContaCorrente() { Titular = new Cliente(nomes[i]), Numero = i+1 };
+                c.Deposita((i+1)*1000);
+                listContas.Add(c);
+            }
+            
+            FormRelatorios form = new FormRelatorios(listContas);
+            form.ShowDialog();
             
         }
     }

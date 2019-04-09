@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BancoArray.Contas;
+using BancoArray.Contas; // to use Conta
 using BancoArray.Busca; // to use GeradorDeDevedores class
 
 namespace BancoArray
@@ -80,6 +80,8 @@ namespace BancoArray
             textoTitular.Text = ""; //refresh field after register
             
             ComboTipoConta.SelectedItem = null; //refresh field after register
+
+            
         }        
         
         private void ComboTipoConta_SelectedIndexChanged(object sender, EventArgs e)
