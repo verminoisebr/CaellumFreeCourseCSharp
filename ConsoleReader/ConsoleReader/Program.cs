@@ -27,10 +27,12 @@ namespace ConsoleReader
             using (TextReader leitor = Console.In)
             {
                 string linha = "";
+                string linhaControl = "";
                 ConsoleColor[] cor = new ConsoleColor[5] { ConsoleColor.Blue, ConsoleColor.Cyan, ConsoleColor.Magenta, ConsoleColor.Yellow, ConsoleColor.Red };
-                while (linha != null)
-                {                    
-                    linha = leitor.ReadLine();                    
+                while (linhaControl != null)
+                {
+                    linhaControl = leitor.ReadLine();
+                    linha += "\n"+linhaControl.Substring(0,1).ToUpper()+linhaControl.Substring(1);                    
                     Console.WriteLine("Você digitou isso: " + linha);
                     int i = new Random().Next(0, 5);
                     Console.ForegroundColor = cor[i];
