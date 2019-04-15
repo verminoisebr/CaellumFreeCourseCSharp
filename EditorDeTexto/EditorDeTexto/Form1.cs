@@ -26,11 +26,11 @@ namespace EditorDeTexto
                 using (StreamReader leitor = new StreamReader(entrada))
                 {
                     //using ReadLine()
-                    string linha = leitor.ReadLine();
+                    string linha = "";
                     while (linha != null)
                     {
-                        textoConteudo.Text += linha;
                         linha = leitor.ReadLine();
+                        textoConteudo.Text += linha + "\n";
                     }
                 }
                 // using ReadToEnd() unless ReadLine()
@@ -53,6 +53,44 @@ namespace EditorDeTexto
             escritor.Write(textoConteudo.Text);
             escritor.Close();
             saida.Close();
+        }
+
+        private void ButtonBusca_Click(object sender, EventArgs e)
+        {
+            string busca = textoBusca.Text;
+            string textoDoEditor = textoConteudo.Text;
+            int resultado = textoDoEditor.IndexOf(busca);
+            if (resultado >= 0)
+            {
+                MessageBox.Show("Texto encontrado: " + busca);
+            }
+            else
+            {
+                MessageBox.Show("Achou não.");
+            }
+        }
+
+        private void ButtonSubstitui_Click(object sender, EventArgs e)
+        {
+            string textoSubstituir = textoSubstitui.Text;
+            string busca = textoBusca.Text;
+            textoConteudo.Text = textoConteudo.Text.Replace(busca, textoSubstituir);           
+        }
+
+        private void ButtonMaiuscula_Click(object sender, EventArgs e)
+        {
+            int inicioSelecao = textoConteudo.SelectionStart;
+            int tamanhoSelecao = textoConteudo.SelectionLength;
+            string textoSelecionado = textoConteudo.Text.Substring(inicioSelecao, tamanhoSelecao);
+            string antes = textoConteudo.Text.Substring(0, inicioSelecao);
+            string depois = textoConteudo.Text.Substring(inicioSelecao + tamanhoSelecao);
+            
+            textoConteudo.Text = antes + textoSelecionado.ToUpper() + depois;
+        }
+
+        private void ButtonMinuscula_Click(object sender, EventArgs e)
+        {
+            textoConteudo.Text = textoConteudo.Text.ToLower();
         }
     }
 }
